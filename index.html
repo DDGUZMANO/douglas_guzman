@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV | Douglas Guzmán: Data Scientist | WEB Developer</title>
+  <meta name="description" content="Currículum de Douglas Guzmán — Ingeniero / Desarrollador / Perfil profesional">
+
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --accent: #06b6d4;
+      --muted: #94a3b8;
+      --glass: rgba(255, 255, 255, 0.04);
+      --radius: 12px;
+      --maxw: 900px;
+      --pad: 20px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #071023 0%, #071827 60%);
+      color: #e6eef6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw)
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-radius: var(--radius);
+      padding: var(--pad);
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 20px;
+      align-items: start;
+      border: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      background: transparent;
+      padding: 10px;
+      border-radius: 10px
+    }
+
+    .photo {
+      width: 100%;
+      height: 260px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--glass), rgba(255, 255, 255, 0.01));
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 12px 0 4px
+    }
+
+    h2 {
+      font-size: 13px;
+      margin: 8px 0;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .contact {
+      margin-top: 12px;
+      font-size: 14px
+    }
+
+    .contact p {
+      margin: 6px 0
+    }
+    .contact a{
+      text-decoration: none;
+      color: #94a3b8;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 999px;
+      margin: 6px 6px 0 0;
+      font-size: 13px
+    }
+
+    /* MAIN */
+    .main {
+      padding: 8px 6px
+    }
+
+    .section {
+      margin-bottom: 18px;
+      text-align: justify
+    }
+
+    .section h3 {
+      margin: 0 0 8px;
+      font-size: 15px
+    }
+
+    .summary {
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      padding: 12px;
+      border-radius: 8px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skill-icon {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .skill-icon img {
+      width: 28px;
+      height: 28px;
+      filter: grayscale(100%) brightness(75%);
+      transition: filter 0.2s;
+    }
+
+    /* Hover: levanta, cambia fondo, y muestra color real */
+    .skill-icon:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-3px);
+    }
+
+    .skill-icon:hover img {
+      filter: none;
+    }
+
+    /* Tooltip */
+    .skill-icon::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: -32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111a2c;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+      white-space: nowrap;
+      border: 1px solid #23314f;
+    }
+
+    .skill-icon:hover::after {
+      opacity: 1;
+    }
+
+    .job {
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.015);
+      margin-bottom: 10px
+    }
+
+    .job h4 {
+      margin: 0;
+      font-size: 14px
+    }
+
+    .job .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 4px 0
+    }
+
+    .job p {
+      margin: 6px 0 0;
+      font-size: 14px;
+      color: #dfeaf6
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .project {
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.015)
+    }
+
+    .project a {
+      text-decoration: none;
+      color: #e6eef6
+    }
+
+    footer {
+      margin-top: 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Responsive */
+    @media (max-width:800px) {
+      .card {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 200px
+      }
+
+      .projects {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* Print */
+    @media print {
+      body {
+        background: white;
+        color: black
+      }
+
+      .card {
+        box-shadow: none;
+        border: none
+      }
+    }
+
+    .languages{
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="photo">
+          <!-- foto de perfil -->
+          <img src="https://github.com/DDGUZMANO/douglas-guzman/blob/main/images/foto_cv.png?raw=true" alt="Foto">
+        </div>
+
+        <h1>Douglas Domingo Guzmán Orence</h1>
+        <h2>Ingeniero de Petróleo · Data Enthusiast · WEB developer</h2>
+
+        <div class="contact">
+          <!--  datos de contacto -->
+          <p class="muted">📍 Sevilla, España</p>
+          <p>📩 <a href="mailto:douglasguzman1991@gmail.com" target="_blank">douglasguzman1991@gmail.com</a></p>
+          <p>🔗 <a href="https://www.linkedin.com/in/douguzman" target="_blank">www.linkedin.com/in/douguzman</a></p>
+          <p>💻 <a href="https://github.com/DDGUZMANO" target="_blank">https://github.com/DDGUZMANO</a></p>
+          <p>☎️ +34 647 146 231</p>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="tag">Disponibilidad: Inmediata</div>
+          <div class="tag">Permiso de conducir: B</div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h3 style="font-size:13px;margin-bottom:8px">Tecnologias</h3>
+          <div class="skills">
+            <div class="skill-icon" data-name="Python">
+              <img src="icons/python.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="SQL">
+              <img src="icons/sql.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="BigQuery">
+              <img src="icons/bigquery.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="Power BI">
+              <img src="icons/powerbi.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="Machine Learning">
+              <img src="icons/ml.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="Numpy">
+              <img src="icons/numpy.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="Pandas">
+              <img src="icons/pandas.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="HTML">
+              <img src="icons/html5.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="CSS">
+              <img src="icons/css3.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="JavaScript">
+              <img src="icons/js.svg" alt="">
+            </div>
+            <div class="skill-icon" data-name="FastAPI">
+              <img src="icons/fastapi.svg" alt="">
+            </div>
+          </div>
+        </div>
+        <section class="section">
+          <h3 class="languages">Idiomas</h3>
+          <p>Español (nativo)</p>
+          <p>Inglés (fluido)</p>
+          <p>Portugués (básico)</p>
+          <p>Francés (básico)</p>
+        </section>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <section class="section summary">
+          <h3>Resumen</h3>
+          <p>
+            Ingeniero con experiencia técnica, formación en ciencia de datos y habilidades en desarrollo web.
+            Especializado en análisis de datos, modelado, visualización y aplicación de técnicas de machine learning
+            para generar insights accionables. Busco integrarme en el sector energético para aportar valor mediante
+            soluciones basadas en datos, desarrollo de herramientas web y la optimización de procesos para mejorar la
+            toma de decisiones.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>Experiencia</h3>
+
+          <article class="job">
+            <h4>Decoración y Pinturas Continental — Ventas, estrategias digitales y tecnología</h4>
+            <div class="meta">Nov 2024 — Presente · Sevilla - España</div>
+            <p>Responsable de ventas, marketing y soluciones tecnológicas. Encargado de asesoramiento técnico, atención
+              al cliente y gestión de pedidos. Desarrollo estrategias digitales, gestiono redes sociales y ejecuto
+              campañas publicitarias. Implemento herramientas tecnológicas para optimizar procesos comerciales y mejorar
+              la experiencia del cliente, contribuyendo al crecimiento y posicionamiento de la empresa.</p>
+          </article>
+
+          <article class="job">
+            <h4>Davicom Comunicaciones SRL — Lider Operativo</h4>
+            <div class="meta">Feb 2017 — Jun 2022 · Buenos Aires - Argentina</div>
+            <p>Gestioné proyectos estratégicos aplicando análisis de datos con SQL Server y Excel, optimizando recursos
+              y mejorando el retorno de inversión. Supervisé equipos de trabajo en campo, incrementando la eficiencia
+              operativa y reforzando la seguridad mediante la toma de decisiones basada en datos. Implementé estrategias
+              basadas en insights para mejorar procesos y apoyar decisiones corporativas a nivel operativo y gerencial.
+            </p>
+          </article>
+
+          <article class="job">
+            <h4>Schlumberger — Ingeniero de campo</h4>
+            <div class="meta">Sep 2015 — May 2016 · Maturín - Venezuela</div>
+            <p>Optimización de fluidos de perforación a partir de análisis fisicoquímicos, reduciendo costos operativos
+              y mejorando el desempeño en campo. Creación y gestión de bases de datos en SQL Server, junto con análisis
+              comparativos en Python para detectar tendencias entre pozos. Presentación de reportes basados en análisis
+              de datos que fortalecieron la toma de decisiones en operaciones de perforación.</p>
+          </article>
+        </section>
+
+        <section class="section">
+          <h3>Proyectos destacados</h3>
+          <div class="projects">
+            <div class="project">
+              <a href="https://github.com/DDGUZMANO/energia_y_contaminacion/blob/main/TP9/energia_y_contaminacion.ipynb"
+                target="_blank">
+                <strong>Energía y contaminación</strong>
+                <p class="muted">Data analysis · Python · Machine learning</p>
+                <p>Análisis comparativo de datasets globales sobre contaminación del aire y consumo energético.
+                  Aplicación
+                  de técnicas de limpieza, visualización y análisis multivariable para detectar patrones clave.
+                  Identificación de altos consumos en regiones de climas extremos y avance de las energías renovables en
+                  Europa y Suramérica. El proyecto aporta insights sobre transición energética y desigualdad en el
+                  acceso
+                  a la electricidad.</p>
+              </a>
+            </div>
+
+            <div class="project">
+              <a href="https://github.com/DDGUZMANO/Lesiones_NBA_2010-2020/blob/main/TP6/Lesiones_NBA_2010_2020.ipynb"
+                target="_blank">
+                <strong>NBA Injury Analytics (2010–2020)</strong>
+                <p class="muted">Data analysis· Python · Matplotlib </p>
+                <p>Análisis exploratorio de lesiones NBA (2010–2020), identificando tendencias por temporada, impacto
+                  del COVID-19 y equipos más afectados.La temporada 2013–2014 presentó el mayor número de lesiones,
+                  mientras que 2019–2020 registró la menor incidencia tras la suspensión por pandemia. El proyecto
+                  examina patrones por equipo y ubicación, destacando posibles factores externos que influyen en la
+                  frecuencia de lesiones.</p>
+              </a>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>Formación</h3>
+          <p class="muted">Máster en Data Science — UCAM Universidad Católica San Antonio de Murcia (2024)</p>
+          <p class="muted">Máster en Data Science, Empresarial — CEUPE European Business School (2024)</p>
+          <p class="muted">Ciencia de datos e inteligencia artificial — Universidad Nacional de San Martín (2023)</p>
+          <p class="muted">Ingeniero de Petróleo — Universidad de Oriente (2016)</p>
+        </section>
+
+        <!-- <section class="section">
+          <h3>Idiomas</h3>
+          <p>Español (nativo) · Inglés (fluido) · Portugués (básico) · Francés (básico)</p>
+        </section> -->
+
+        <footer>
+          Última actualización: Nov 2025 ·
+        </footer>
+      </main>
+    </div>
+  </div>
+</body>
+
+</html>
